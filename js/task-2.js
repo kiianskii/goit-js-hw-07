@@ -1,34 +1,66 @@
-// Створи клас Storage, який створюватиме об'єкти для управління складом товарів. Клас очікує лише один аргумент — початковий масив товарів, який записується до створеного об'єкта в приватну властивість items.
+// Напиши скрипт для створення галереї зображень на основі масиву даних. HTML містить список ul.gallery.
+// Використовуй масив об'єктів images для створення елементів <img>, вкладених в <li>.
 
-// Оголоси наступні методи класу:
+// Ти можеш створити й додати HTML-елементи, використовуючи document.createElement() і elem.append() або шаблонні рядки і elem.insertAdjacentHTML().
 
-// getItems() — повертає масив поточних товарів у приватній властивості items.
-// addItem(newItem) — приймає новий товар newItem і додає його до масиву товарів у приватну властивість items об'єкта.
-// removeItem(itemToRemove) — приймає рядок з назвою товару itemToRemove і видаляє його з масиву товарів у приватній властивості items об'єкта.
+// Усі елементи галереї повинні додаватися в DOM за одну операцію додавання.
+// Додай мінімальне оформлення галереї флексбоксами через CSS класи.
+// На що буде звертати увагу ментор при перевірці:
+
+// Створена й додана в DOM галерея із трьох зображень
+// Галерея додана у список ul.gallery і являє собою 3 елементи <li>, в які вкладені елементи <img>
+// Для створення елементів <img> використані дані з масиву об’єктів images
+// Усі елементи галереї додані в DOM за одну операцію додавання
+// Є мінімальне оформлення галереї флексбоксами через CSS класи
 
 
-// Візьми код нижче з ініціалізацією екземпляра й викликами методів і встав його після оголошення класу для перевірки коректності роботи. У консоль будуть виведені результати їх роботи. Будь ласка, нічого там не змінюй.
+const images = [
+  {
+    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'White and Black Long Fur Cat',
+  },
+  {
+    url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+  },
+  {
+    url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Group of Horses Running',
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    alt: 'Elephant Beside on Baby Elephant',
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/37833/rainbow-lorikeet-parrots-australia-rainbow-37833.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    alt: 'Blue Geeen and Orange Parrot',
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    alt: 'Zebras on Zebra',
+  },
+];
 
-class Storage {
-    #items;
-    constructor(items) {
-        this.#items = items
-    }
-    getItems() {
-        return this.#items
-    }
-    addItem(newItem) {
-        this.#items.push(newItem)
-    }
-    removeItem(itemToRemove) {
-        
-        this.#items = this.#items.filter(el => el !== itemToRemove)
-    }
+const galleryEl = document.querySelector(".gallery");
+ const myElems = [];
+
+for (const obj of images) {
+  const myElem = document.createElement('li');
+  myElem.classList.add('img-block');
+
+  const firstChild = document.createElement('img');
+  firstChild.setAttribute("src", obj.url)
+  firstChild.setAttribute("alt", obj.alt)
+  firstChild.setAttribute("width", "250px");
+  firstChild.setAttribute("height", "200px");
+
+
+  myElem.append(firstChild);
+
+  myElems.push(myElem);
 }
 
-const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
-storage.addItem("Droid");
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-storage.removeItem("Prolonger");
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+galleryEl.append(...myElems); 
