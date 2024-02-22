@@ -14,3 +14,22 @@
 // При сабміті в консоль виводиться об’єкт з двома властивостями, де ключі — це ім’я інпутів, а значення — відповідні значення цих інпутів, очищені від пробілів по краях
 // Після сабміту елементи форми очищаються
 
+const formEl = document.querySelector('.js-login-form');
+
+formEl.addEventListener('submit', onSubmit);
+function onSubmit(e) { 
+    e.preventDefault();
+
+    const { email, password } = e.currentTarget.elements; 
+
+    if (!email.value || !password.value) return alert("All form fields must be filled in");
+
+    const userData = {
+        email: email.value,
+        password: password.value,
+    };
+
+    console.log(userData);
+
+    e.currentTarget.reset();
+}
