@@ -54,8 +54,8 @@ for (const obj of images) {
   const firstChild = document.createElement('img');
   firstChild.setAttribute("src", obj.url)
   firstChild.setAttribute("alt", obj.alt)
-  firstChild.setAttribute("width", "250px");
-  firstChild.setAttribute("height", "200px");
+  firstChild.setAttribute("width", "360px");
+  firstChild.setAttribute("height", "300px");
 
 
   myElem.append(firstChild);
