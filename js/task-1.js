@@ -10,10 +10,10 @@
 // Дані за кожною категорією були отримані й виведені в консоль у тілі циклу або методу forEach()
 // У консолі має бути виведено наступне повідомлення:
 
-const listEl = document.querySelectorAll(".item")
+const listEl = document.querySelectorAll(".js-item")
 console.log(`Number of categories: ${listEl.length}`)
 
-const item = document.querySelector(".item>ul");
+const item = document.querySelector(".js-item>ul");
 
 listEl.forEach((el) => {
     console.log(`Category: ${el.children[0].textContent}`);

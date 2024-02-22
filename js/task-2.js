@@ -44,7 +44,7 @@ const images = [
   // },
 ];
 
-const galleryEl = document.querySelector(".gallery");
+const galleryEl = document.querySelector(".js-gallery");
  const myElems = [];
 
 for (const obj of images) {
