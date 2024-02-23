@@ -22,14 +22,12 @@ const refs = {
     createBtn: document.querySelector("[data-create]"),
     destroyBtn: document.querySelector("[data-destroy]"),
     box: document.querySelector("#boxes")
-
 }
 
 const myElems = [];
 
 refs.createBtn.addEventListener('click', onCreateBtnClick);
 refs.destroyBtn.addEventListener('click', onDestroyBtnClick);
-
 
 function onCreateBtnClick(e) {
 
@@ -39,13 +37,9 @@ function onCreateBtnClick(e) {
 
     onDestroyBtnClick();
 
-
-
     let divArr = renderBoxes(+query);
 
     refs.box.prepend(...divArr);
-
-
 }
 
  
@@ -65,7 +59,6 @@ function renderBoxes(num) {
     };
     return divArr;
 }
-
 
 function onDestroyBtnClick() {
     refs.box.innerHTML = "";
