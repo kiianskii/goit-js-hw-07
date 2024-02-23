@@ -38,41 +38,48 @@ const refs = {
 const myElems = [];
 
 refs.createBtn.addEventListener('click', onCreateBtnClick);
+refs.destroyBtn.addEventListener('click', onDestroyBtnClick);
+
 
 function onCreateBtnClick(e) {
 
   const query = refs.input.value; 
 
-    if (query <= 0 || query > 100) return;
-   
-    renderBoxes(query);
+    if (query <= 0 || query > 100) return alert("Number should be in range from 1 to 100");
+
+    onDestroyBtnClick();
+
+    // renderBoxes(query);
+
+    let divArr = renderBoxes(+query);
+
+    refs.box.prepend(...divArr);
+
 
 }
 
  
 function renderBoxes(num) {
+    
+        const divArr = [];
+        let pixel = 20;
 
     for (let i = 1; i <= num; i++) {
-
-        const myElem = document.createElement('div');
-        const pixel = 20 + i * 10;
-   
+        pixel += 10;
+        const myElem = document.createElement("div");
+        myElem.style.backgroundColor = getRandomHexColor();
         myElem.style.width = `${pixel}px`;
         myElem.style.height = `${pixel}px`;
-
-     myElem.style.backgroundColor = getRandomHexColor();
-
-
-     myElems.push(myElem);
-        
-     refs.box.append(...myElems); 
+        divArr.push(myElem);
     
     };
+    return divArr;
 }
 
 
-function destroyBoxes() {
+function onDestroyBtnClick() {
     refs.box.innerHTML = "";
+    refs.input.value = "";
 }
 
 function getRandomHexColor() {
@@ -81,4 +88,39 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-// '<div style="width: 30px; height: 30px; background-color: rgb(2, 58, 85);"></div>'
+
+
+
+// destroyBtn.addEventListener("click", destroyBoxesClick);
+// createBtn.addEventListener("click", createBoxesClick);
+
+// function createBoxesClick() {
+//   let inputVal = inputNum.value;
+//   if (inputVal < 1 || inputVal > 100) {
+//     return alert("Number should be in range from 1 to 100");
+//   }
+//   destroyBoxesClick();
+
+//   let divArr = createBoxes(+inputVal);
+
+//   outputBoxes.prepend(...divArr);
+// }
+
+// function destroyBoxesClick() {
+//   outputBoxes.innerHTML = "";
+//   inputNum.value = "";
+// }
+
+// function createBoxes(amount) {
+//   const divArr = [];
+//   let size = 20;
+//   for (let i = 1; i <= amount; i++) {
+//     size += 10;
+//     const divBox = document.createElement("div");
+//     divBox.style.backgroundColor = getRandomHexColor();
+//     divBox.style.width = `${size}px`;
+//     divBox.style.height = `${size}px`;
+//     divArr.push(divBox);
+//   }
+//   return divArr;
+// }
