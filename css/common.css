@@ -258,6 +258,11 @@ button[data-create] {
   background: #4e75ff;
   letter-spacing: 0.04em;
   color: #fff;
+  transition: all ease-in-out 200ms;
+}
+
+button[data-create]:hover {
+  background: #6c8cff;
 }
 
 button[data-destroy] {
@@ -270,4 +275,9 @@ button[data-destroy] {
   font-size: 16px;
   letter-spacing: 0.04em;
   color: #fff;
+  transition: all ease-in-out 200ms;
+}
+
+button[data-destroy]:hover {
+  background: #ff7070;
 }
