@@ -39,7 +39,7 @@ function onCreateBtnClick(e) {
 
     onDestroyBtnClick();
 
-    // renderBoxes(query);
+
 
     let divArr = renderBoxes(+query);
 
