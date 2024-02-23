@@ -213,3 +213,12 @@ h1 {
 .widget button:hover {
   background: #6c8cff;
 }
+
+#boxes {
+  width: 1158px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}

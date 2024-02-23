@@ -14,7 +14,7 @@ const listEl = document.querySelectorAll(".js-item")
 console.log(`Number of categories: ${listEl.length}`)
 
 listEl.forEach((el) => {
-    console.log(`Category: ${el.firstElementChild.textContent}\n Elements: ${el.lastElementChild.children.length}`)
+    console.log(`Category: ${el.firstElementChild.textContent}\n Elements: ${el.la.children.length}`)
 })
 
 
