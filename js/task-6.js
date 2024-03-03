@@ -24,7 +24,6 @@ const refs = {
     box: document.querySelector("#boxes")
 }
 
-const myElems = [];
 
 refs.createBtn.addEventListener('click', onCreateBtnClick);
 refs.destroyBtn.addEventListener('click', onDestroyBtnClick);
